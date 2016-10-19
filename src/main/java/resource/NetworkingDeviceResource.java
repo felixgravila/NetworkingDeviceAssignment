@@ -28,18 +28,13 @@ public class NetworkingDeviceResource {
 
 		// creating a device
 		post("/NetworkingDevice", (req, res) -> {
-			try{
 			NetworkingDevice n = mapper.readValue(req.body(), NetworkingDevice.class);
-			System.out.println(n);
 			NetworkingDeviceDao.getInstance().addNetworkingDevice(n);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			return "OK";
 		});
-		
-		//deleting a device
-		delete("/NetworkingDevice/:id", (req,res) -> {
+
+		// deleting a device
+		delete("/NetworkingDevice/:id", (req, res) -> {
 			int id = Integer.parseInt(req.params("id"));
 			NetworkingDeviceDao.getInstance().deleteById(id);
 			return "OK";
@@ -52,8 +47,8 @@ public class NetworkingDeviceResource {
 			NetworkingDeviceDao.getInstance().addNetworkingDevice(n);
 			return "OK";
 		});
-		
-		//Setting ports
+
+		// Setting ports
 		put("/NetworkingDevice/updatePorts/:id", (req, res) -> {
 			Long[] ports = mapper.readValue(req.body(), Long[].class);
 			int id = Integer.parseInt(req.params("id"));

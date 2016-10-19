@@ -2,4 +2,5 @@ Manifest-Version: 1.0
 Built-By: felix
 Build-Jdk: 1.8.0_74
 Created-By: Maven Integration for Eclipse
+Main-Class: main.Main
 
