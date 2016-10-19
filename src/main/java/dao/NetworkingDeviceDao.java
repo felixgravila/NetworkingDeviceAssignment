@@ -29,6 +29,10 @@ public class NetworkingDeviceDao {
 		return null;
 	}
 	
+	public List<NetworkingDevice> getNetworkingDevices(){
+		return networkingDevices; 
+	}
+	
 	public void addNetworkingDevice(NetworkingDevice net){
 		for(NetworkingDevice n: networkingDevices)
 			if(n.getId() == net.getId()){ //means updating

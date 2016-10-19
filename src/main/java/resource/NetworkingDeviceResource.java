@@ -1,6 +1,8 @@
 package resource;
 import static spark.Spark.*;
 
+import dao.NetworkingDeviceDao;
+
 public class NetworkingDeviceResource {
 	public NetworkingDeviceResource() {
 		/*
@@ -12,6 +14,7 @@ public class NetworkingDeviceResource {
 		 * Specify network ports for a device
 		 */
 		
+		get("/NetworkingDevice", (req, res) -> {return NetworkingDeviceDao.getInstance().getNetworkingDevices();});
 		
         get("/NetworkingDevice/:id", (req, res) -> {
         	

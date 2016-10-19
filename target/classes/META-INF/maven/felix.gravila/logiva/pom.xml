@@ -4,7 +4,7 @@
 	<groupId>felix.gravila</groupId>
 	<artifactId>logiva</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>logiva_proj</name>
+	<name>felixgravila_proj</name>
 	
 	<dependencies>
 		<dependency>
