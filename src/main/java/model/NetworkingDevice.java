@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.List;
 
@@ -14,6 +13,9 @@ public class NetworkingDevice {
 	String comment;
 	InputStream photo;
 	List<Long> ports;
+	
+	public NetworkingDevice(){
+	}
 
 	public NetworkingDevice(String manufacturer, String model, String hostname, List<Long> ports) {
 		this.manufacturer = manufacturer;
@@ -22,6 +24,19 @@ public class NetworkingDevice {
 		this.ports = ports;
 		this.id = NetworkingDeviceDao.getInstance().getNextId(); //emulates a database auto increment
 	}
+
+	public NetworkingDevice(int id, String manufacturer, String model, String hostname, String comment,
+			InputStream photo, List<Long> ports) {
+		this.id = id;
+		this.manufacturer = manufacturer;
+		this.model = model;
+		this.hostname = hostname;
+		this.comment = comment;
+		this.photo = photo;
+		this.ports = ports;
+	}
+
+
 
 	public int getId() {
 		return id;

@@ -2,9 +2,7 @@ package resource;
 
 import static spark.Spark.*;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.servlet.MultipartConfigElement;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,8 +28,13 @@ public class NetworkingDeviceResource {
 
 		// creating a device
 		post("/NetworkingDevice", (req, res) -> {
+			try{
 			NetworkingDevice n = mapper.readValue(req.body(), NetworkingDevice.class);
+			System.out.println(n);
 			NetworkingDeviceDao.getInstance().addNetworkingDevice(n);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			return "OK";
 		});
 		
