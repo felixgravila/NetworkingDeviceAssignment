@@ -1,17 +1,18 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.io.InputStream;
 import java.util.List;
 
 import dao.NetworkingDeviceDao;
 
 public class NetworkingDevice {
-	int id;
+	int id = 0;
 	String manufacturer;
 	String model;
 	String hostname;
 	String comment;
-	BufferedImage photo;
+	InputStream photo;
 	List<Long> ports;
 
 	public NetworkingDevice(String manufacturer, String model, String hostname, List<Long> ports) {
@@ -24,6 +25,10 @@ public class NetworkingDevice {
 
 	public int getId() {
 		return id;
+	}
+	
+	public void setId(int id){
+		this.id = id;
 	}
 
 	public String getManufacturer() {
@@ -58,11 +63,11 @@ public class NetworkingDevice {
 		this.comment = comment;
 	}
 
-	public BufferedImage getPhoto() {
+	public InputStream getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(BufferedImage photo) {
+	public void setPhoto(InputStream photo) {
 		this.photo = photo;
 	}
 

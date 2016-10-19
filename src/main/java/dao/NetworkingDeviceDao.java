@@ -29,18 +29,31 @@ public class NetworkingDeviceDao {
 		return null;
 	}
 	
+	public void deleteById(int id){
+		for(NetworkingDevice n: networkingDevices)
+			if(n.getId()==id){
+				networkingDevices.remove(n);
+				return;
+			}
+	}
+	
 	public List<NetworkingDevice> getNetworkingDevices(){
 		return networkingDevices; 
 	}
 	
 	public void addNetworkingDevice(NetworkingDevice net){
+		if(net.getId() == 0){ //creating
+			net.setId(getNextId());
+			networkingDevices.add(net); 
+			return;
+		}			
 		for(NetworkingDevice n: networkingDevices)
 			if(n.getId() == net.getId()){ //means updating
 				networkingDevices.remove(n);
 				networkingDevices.add(net); 
 				return;
 			}
-		networkingDevices.add(net); //just adding
+		networkingDevices.add(net); //just adding a new one
 	}
 	
 	public int getNextId(){
