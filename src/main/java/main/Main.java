@@ -10,7 +10,7 @@ import resource.NetworkingDeviceResource;
 
 public class Main {
 	//main place to configure port
-	static int port = 8080;
+	static int port = 80;
 	/*
 	 * entry point
 	 */
