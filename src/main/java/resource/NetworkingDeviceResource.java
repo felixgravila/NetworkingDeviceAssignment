@@ -12,7 +12,8 @@ import model.NetworkingDevice;
 public class NetworkingDeviceResource {
 	ObjectMapper mapper;
 
-	public NetworkingDeviceResource() {
+	public NetworkingDeviceResource(int port) {
+		port(port);
 		mapper = new ObjectMapper();
 
 		// list devices

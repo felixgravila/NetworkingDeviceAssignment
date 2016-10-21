@@ -1,17 +1,22 @@
 package main;
 
 import java.util.ArrayList;
+
+import javax.sound.sampled.Port;
+
 import dao.NetworkingDeviceDao;
 import model.NetworkingDevice;
 import resource.NetworkingDeviceResource;
 
 public class Main {
+	//main place to configure port
+	static int port = 8080;
 	/*
 	 * entry point
 	 */
 	public static void main(String[] args) {
 		//start the REST service for networking devices
-		NetworkingDeviceResource nrs = new NetworkingDeviceResource(); 
+		NetworkingDeviceResource nrs = new NetworkingDeviceResource(port); 
 		initSomeData();
 	}
 	
